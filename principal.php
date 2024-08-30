@@ -1,5 +1,14 @@
 <?php 
+session_start();
+require 'admin/config.php';
+error_reporting(0);
+ini_set("display_errors", 0);
+$matricula = $_SESSION['matricula'];
+$hoje=date('Y-m-d');
+$pegadia=$conn->query("SELECT * FROM merenda WHERE matricula='$matricula' ");
+$dia=$pegadia->fetch();
 
+// var_dump($hoje);
     include 'header.php';?>
     <div class="site">
          <div class="logo">
@@ -10,10 +19,17 @@
         <div class="boxers">
            
 
-            <a href="#" id="registerActionLink"><div class="box">
+            <a href="#" id="registerActionLink">
+                <?php if($dia['data'] != $hoje){?>
+                    <div class="box">
                 <img src="assets/img/mdi_food-turkey.png" alt="">
                 <span>Almoçar</span>
-            </div></a>
+            </div>
+            <?php }else{
+            echo "Ja pedi almoço";
+        } ?>
+        </a>
+        
 
             <a href="#" id="openPopupLink"><div class="box">
                 <img src="assets/img/tdesign_laptop.png" alt="">

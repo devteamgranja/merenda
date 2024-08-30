@@ -5,11 +5,11 @@ require 'admin/config.php';
 if(isset($_POST['matricula']) && !empty($_POST['senha'])){
     $matricula=$_POST['matricula'];
     $senha=$_POST['senha'];
-    $acesso=$conn->query("SELECT * FROM aluno WHERE matricula='$matricula' AND senha='$senha' ");
+    $acesso=$conn->query("SELECT * FROM usuario WHERE matricula='$matricula' AND senha='$senha' ");
     $pegaaluno=$acesso->fetch();
     if($acesso->rowCount() > 0){
-        $_SESSION['user']=$pegaluno['login'];
-        $_SESSION['matricula']=$pegaluno['matricula'];
+        $_SESSION['user']=$pegaaluno['aluno'];
+        $_SESSION['matricula']=$pegaaluno['matricula'];
         header("location: principal.php");
 
 

@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function() {
         event.preventDefault(); // Impede o comportamento padrão do link
         
         // Envia uma requisição AJAX para o servidor
-        fetch('register_action.php', {
+        fetch('admin/cad_comida.php', {
             method: 'POST'
         })
         .then(response => response.text())
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const formData = new FormData(this);
 
         // Envia os dados do formulário para o servidor
-        fetch('register_user.php', {
+        fetch('cad_lab.php', {
             method: 'POST',
             body: formData
         })
