@@ -26,7 +26,7 @@ $dia=$pegadia->fetch();
                 <span>Almoçar</span>
             </div>
             <?php }else{
-            echo "Ja pedi almoço";
+            echo "<div class='box' style='height:50px;opacity:0.4;cursor:not-allowed' disabled>Ja pedi almoço</div>";
         } ?>
         </a>
         
